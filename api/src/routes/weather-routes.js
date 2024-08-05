@@ -2,8 +2,7 @@ module.exports = (app) => {
   const router = require('express').Router()
   const controller = require('../controllers/front/weather-controller.js')
 
-  router.get('/', controller.findAll)
-  router.get('/:id', controller.findOne)
+  router.post('/', controller.create)
 
   app.use('/api/front/weather', router)
 }

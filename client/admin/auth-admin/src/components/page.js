@@ -15,11 +15,11 @@ class PageComponent extends HTMLElement {
     this.render()
   }
 
-  async getRoutes(){
+  async getRoutes () {
     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/admin/routes`, {
       headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('customerAccessToken'),
-      },
+        Authorization: 'Bearer ' + localStorage.getItem('customerAccessToken')
+      }
     })
 
     if (response.ok) {

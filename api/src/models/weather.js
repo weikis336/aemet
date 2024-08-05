@@ -7,106 +7,59 @@ module.exports = function (sequelize, DataTypes) {
         primaryKey: true,
         allowNull: false
       },
-
       fecha: {
-        type: DataTypes.DATE,
-        allowNull: false
+        type: DataTypes.DATE
       },
       indicativo: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
       nombre: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
       provincia: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
       altitud: {
-        type: DataTypes.FLOAT,
-        allowNull: false
+        type: DataTypes.FLOAT
       },
       tmed: {
-        type: DataTypes.FLOAT,
-        allowNull: false
+        type: DataTypes.FLOAT
       },
       prec: {
-        type: DataTypes.FLOAT,
-        allowNull: false
+        type: DataTypes.STRING
       },
       tmin: {
-        type: DataTypes.FLOAT,
-        allowNull: false
-      },
-      horatmin: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.FLOAT
       },
       tmax: {
-        type: DataTypes.FLOAT,
-        allowNull: false
-      },
-      horatmax: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.FLOAT
       },
       dir: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
       velmedia: {
-        type: DataTypes.FLOAT,
-        allowNull: false
+        type: DataTypes.FLOAT
       },
       racha: {
-        type: DataTypes.FLOAT,
-        allowNull: false
-      },
-      horaracha: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.FLOAT
       },
       sol: {
-        type: DataTypes.FLOAT,
-        allowNull: false
+        type: DataTypes.FLOAT
       },
       presMax: {
-        type: DataTypes.FLOAT,
-        allowNull: false
-      },
-      horaPresMax: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.FLOAT
       },
       presMin: {
-        type: DataTypes.FLOAT,
-        allowNull: false
-      },
-      horaPresMin: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.FLOAT
       },
       hrMedia: {
-        type: DataTypes.FLOAT,
-        allowNull: false
+        type: DataTypes.FLOAT
       },
       hrMax: {
-        type: DataTypes.FLOAT,
-        allowNull: false
-      },
-      horaHrMax: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.FLOAT
       },
       hrMin: {
-        type: DataTypes.FLOAT,
-        allowNull: false
-      },
-      horaHrMin: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.FLOAT
       },
       createdAt: {
         type: DataTypes.DATE,
