@@ -74,7 +74,7 @@ class ButtonData extends HTMLElement {
 
     button.addEventListener('click', async () => {
       try {
-        let response = await fetch('https://opendata.aemet.es/opendata/api/valores/climatologicos/diarios/datos/fechaini/2024-02-01T00:00:00UTC/fechafin/2024-08-01T23:59:59UTC/estacion/B228/?api_key=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3ZWlraXMzMzZAcHJvdG9ubWFpbC5jb20iLCJqdGkiOiJhMGY4YjlhYS03MzJjLTQ1OWEtOWU5Yi1jZGUzZTEzZjM2OWUiLCJpc3MiOiJBRU1FVCIsImlhdCI6MTcyMjg0MjU3NSwidXNlcklkIjoiYTBmOGI5YWEtNzMyYy00NTlhLTllOWItY2RlM2UxM2YzNjllIiwicm9sZSI6IiJ9.H_Gd8el3r3dPqXDbRaiGIrV9MpB-5poIanKYbo7z1cg')
+        let response = await fetch(`https://opendata.aemet.es/opendata/api/valores/climatologicos/diarios/datos/fechaini/2024-02-01T00:00:00UTC/fechafin/2024-08-01T23:59:59UTC/estacion/B228/?api_key=${import.meta.env.VITE_API_KEY}`)
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`)
@@ -93,8 +93,26 @@ class ButtonData extends HTMLElement {
         responseData = await response.json()
 
         responseData = responseData.map(element => {
+          const newElement = {}
 
+          Object.entries(element).forEach(([key, value]) => {
+            newElement[key] = value.replace(',', '.')
+          })
+
+          return newElement
         })
+
+        response = await fetch(`${import.meta.env.VITE_API_URL}/api/front/weather`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(responseData)
+        })
+
+        responseData = await response.json()
+
+        console.log(responseData)
       } catch (error) {
         console.error('Fetch error:', error)
       }
